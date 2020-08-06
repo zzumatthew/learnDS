@@ -46,6 +46,5 @@ public class Ex09 {
         String stringRight = s.substring(len/2 , len);
         return stringReverse(stringRight) + stringReverse(stringLeft);
     }
-
 }
 
