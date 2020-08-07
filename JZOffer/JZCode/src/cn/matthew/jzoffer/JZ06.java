@@ -57,7 +57,7 @@ public class JZ06 {
         if (node != null){
             reverseLinkNode2(node.next);
             System.out.println(node.val);
-        }else return;
+        }
     }
 
 }
