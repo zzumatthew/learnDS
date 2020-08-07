@@ -42,7 +42,7 @@ public class JZ0702 {
 
     /**
      * 打印传入的节点
-     * @param treeNode
+     * @param treeNode 输入的结点
      */
     private static void printNode(TreeNode treeNode){
         System.out.println(treeNode.getVal());
@@ -162,7 +162,7 @@ public class JZ0702 {
  * TreeNode类，定义了树的结构
  */
 class TreeNode{
-    int val = 0;
+    int val;
     TreeNode left = null;
     TreeNode right = null;
 
