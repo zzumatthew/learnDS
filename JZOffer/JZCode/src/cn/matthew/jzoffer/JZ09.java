@@ -24,32 +24,33 @@ public class JZ09 {
     public static void main(String[] args) {
         //输入1 2 3，输出1 2 3，实现了队列的FIFO特点
         Queue queue = new Queue();
-        queue.push(1);
-        queue.push(2);
-        queue.push(3);
-        System.out.println(queue.pop());
-        System.out.println(queue.pop());
-        System.out.println(queue.pop());
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
     }
 }
 
+//用两个栈模拟的队列
 class Queue{
     Stack<Integer> stack1 = new Stack<>();
     Stack<Integer> stack2 = new Stack<>();
 
     /**
-     * 向队列中添加数据 == 向stack1中push数据
+     * 模拟队列的add操作，向队列中添加数据 == 向stack1中push数据
      * @param node push的数据
      */
-    public void push(int node){
+    public void add(int node){
         stack1.push(node);
     }
 
     /**
-     * 从队列中删除数据 == 从stack2中pop数据（注意stack2中为空的时候）
+     * 模拟队列的remove操作，从队列中删除数据 == 从stack2中pop数据（注意stack2中为空的时候）
      * @return 需要删除的数据
      */
-    public int pop(){
+    public int remove(){
         //stack2为空，stack1中的pop的数据都要push到stack2中
         if (stack2.empty()) {
             while (!stack1.empty()) {
