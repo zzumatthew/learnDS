@@ -1,6 +1,5 @@
 package cn.matthew.jzoffer;
 
-
 import java.util.Stack;
 
 /**
@@ -50,9 +49,10 @@ public class JZ0702 {
 
     /**
      * 递归实现前序遍历：根 - 左 - 右
+     *
      * @param root 根节点
      */
-    private static void preOrder(TreeNode root) {
+    public static void preOrder(TreeNode root) {
         printNode(root);
         if (root.getLeft() != null) preOrder(root.getLeft());
         if (root.getRight() != null) preOrder(root.getRight());
@@ -60,9 +60,10 @@ public class JZ0702 {
 
     /**
      * 递归实现中序遍历：左 - 根 - 右
+     *
      * @param root 根节点
      */
-    private static void inOrder(TreeNode root){
+    public static void inOrder(TreeNode root) {
         if (root.getLeft() != null) inOrder(root.getLeft());
         printNode(root);
         if (root.getRight() != null) inOrder(root.getRight());
@@ -70,9 +71,10 @@ public class JZ0702 {
 
     /**
      * 递归实现后序遍历：左 - 右 - 根
+     *
      * @param root 根节点
      */
-    private static void postOrder(TreeNode root){
+    public static void postOrder(TreeNode root) {
         if (root.getLeft() != null) postOrder(root.getLeft());
         if (root.getRight() != null) postOrder(root.getRight());
         printNode(root);
@@ -80,17 +82,18 @@ public class JZ0702 {
 
     /**
      * 非递归实现前序遍历：根 - 左 - 右
+     *
      * @param root
      */
-    private static void normalPreOrder(TreeNode root){
+    public static void normalPreOrder(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode node = root;
-        while (node != null || stack.size() > 0){
-            if (node != null){
+        while (node != null || stack.size() > 0) {
+            if (node != null) {
                 printNode(node);
                 stack.push(node);
                 node = node.getLeft();
-            }else {
+            } else {
                 node = stack.pop();
                 node = node.getRight();
             }
@@ -99,17 +102,18 @@ public class JZ0702 {
 
     /**
      * 非递归实现中序排列：左 - 根 - 右
+     *
      * @param root
      */
-    private static void normalInOrder(TreeNode root){
+    public static void normalInOrder(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode node = root;
-        while (node != null || stack.size() > 0){
-            if (node != null){
+        while (node != null || stack.size() > 0) {
+            if (node != null) {
                 stack.push(node);
                 node = node.getLeft();
-            }else {
-                node =stack.pop();
+            } else {
+                node = stack.pop();
                 printNode(node);
                 node = node.getRight();
             }
@@ -118,21 +122,25 @@ public class JZ0702 {
 
     /**
      * 非递归实现后序遍历：左 - 右 - 根
+     *
      * @param root
      */
-    private static void normalPostOrder(TreeNode root){
+    public static void normalPostOrder(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         Stack<TreeNode> out = new Stack<>();
         TreeNode node = root;
-        while (node != null || stack.size() > 0 ){
-            if (node != null){
+        while (node != null || !stack.isEmpty()) {
+            if (node != null) {
                 stack.push(node);
                 out.push(node);
                 node = node.getRight();
-            }else {
+            } else {
                 node = stack.pop();
                 node = node.getLeft();
             }
+        }
+        while (!out.isEmpty()) {
+            System.out.println(out.pop().getVal());
         }
     }
 
