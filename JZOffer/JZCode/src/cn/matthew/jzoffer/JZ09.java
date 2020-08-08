@@ -46,7 +46,7 @@ class Queue{
     }
 
     /**
-     * 从队列中删除数据 == 从stack2中pop数据
+     * 从队列中删除数据 == 从stack2中pop数据（注意stack2中为空的时候）
      * @return 需要删除的数据
      */
     public int pop(){
