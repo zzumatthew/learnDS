@@ -56,12 +56,12 @@ public class JZ11 {
             if (arr[p1] == arr[pMid] && arr[pMid] == arr[p2])
                 return minInOrder(arr, p1, p2);
 
+            //非特殊情况，二分查找
             if (arr[p1] <= arr[pMid]) {
                 p1 = pMid;
             } else if (arr[p2] >= arr[pMid]) {
                 p2 = pMid;
             }
-
         }
         return arr[pMid];
     }
