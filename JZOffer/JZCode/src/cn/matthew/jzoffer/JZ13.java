@@ -41,9 +41,7 @@ public class JZ13 {
 
         boolean[] isVisited = new boolean[rows * columns];
 
-        int count = movingCountCore(threshold, rows, columns, 0, 0, isVisited);
-
-        return count;
+        return movingCountCore(threshold, rows, columns, 0, 0, isVisited);
     }
 
     public static int movingCountCore(int threshold, int rows, int columns, int row, int col, boolean[] isVisited) {
@@ -69,13 +67,12 @@ public class JZ13 {
      * @param isVisited 当前的格子是否已经被访问过
      * @return false不能访问，true可以访问
      */
-    public static boolean chech(int threshold, int rows, int columns, int row, int col, boolean[] isVisited) {
-        if (row >= 0 && row < rows && col >= 0 && col < columns
+    public static boolean chech(int threshold, int rows, int columns,
+                                int row, int col, boolean[] isVisited) {
+        return row >= 0 && row < rows
+                && col >= 0 && col < columns
                 && getDigi(row) + getDigi(col) <= threshold
-                && !isVisited[row * columns + col])
-            return true;
-
-        return false;
+                && !isVisited[row * columns + col];
     }
 
     /**
