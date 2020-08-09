@@ -1,2 +1,2 @@
 # learnDS
-Notes for DataStructure learning
+Notes for DataStructure and Algorithm learning
