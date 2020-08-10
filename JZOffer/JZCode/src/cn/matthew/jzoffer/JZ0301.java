@@ -3,7 +3,7 @@ package cn.matthew.jzoffer;
 import java.util.ArrayList;
 
 /**
- * @description:数组中重复的数字
+ * @description: 数组中重复的数字
  * @date: 8/4/2020
  * @author: 大帅
  * @version:
