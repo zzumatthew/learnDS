@@ -1,7 +1,7 @@
 package cn.matthew.jzoffer;
 
 /**
- * @description: 剪绳子 - 动态规划
+ * @description: 剪绳子 -动态规划
  * @date: 8/9/2020
  * @author: 大帅
  * @version:
