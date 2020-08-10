@@ -16,7 +16,7 @@ package cn.matthew.jzoffer;
 位运算是把数字用二进制表示之后，对每一位上的0或者1的运算。
 位运算的左移：m<<n表示把m左移n位，最左边的n位会被丢弃，同时在最右边补上n个0
 位运算的右移：m>>n表示把m右移n位，当m是一个正数的时候，最最右边的n位会被丢弃
-            同时左边补n个0；如果是负数，那么就补n个1.
+            同时左边补n个0；如果是负数，那么就补n个1。
  */
 public class JZ15 {
     public static void main(String[] args) {
