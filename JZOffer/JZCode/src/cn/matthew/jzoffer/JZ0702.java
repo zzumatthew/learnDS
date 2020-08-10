@@ -3,7 +3,7 @@ package cn.matthew.jzoffer;
 import java.util.Stack;
 
 /**
- * @description: 二叉树的 6 种遍历
+ * @description: 二叉树的3种遍历6种实现
  * @date: 8/7/2020
  * @author: 大帅
  * @version:
