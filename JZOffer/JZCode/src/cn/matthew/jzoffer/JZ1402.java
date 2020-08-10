@@ -1,7 +1,7 @@
 package cn.matthew.jzoffer;
 
 /**
- * @description: 剪绳子 - 贪婪算法
+ * @description: 剪绳子-贪婪算法
  * @date: 8/9/2020
  * @author: 大帅
  * @version:
