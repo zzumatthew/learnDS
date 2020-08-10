@@ -15,7 +15,7 @@ import java.util.Queue;
 queuq1中的数据出队列到queue2中，直到queue1剩余最后一个数据。
 这个数据出队列，就可以实现LIFO。
 总是要保证有一个队列一直为空，不为空的队列只能不断的把数据加到空队列中且留一个数据出队列。
-空队列不能加数据（第一次初始化都是空的，随便加一个）
+空队列不能加数据（第一次初始化都是空的，随便加一个）。
  */
 public class JZ0902 {
     public static void main(String[] args) throws Exception {
