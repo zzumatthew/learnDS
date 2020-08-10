@@ -1,6 +1,6 @@
 package cn.matthew.jzoffer;
 /**
- * @description: 二叉树的下一个节点
+ * @description: 寻找二叉树的下一个节点
  * @date: 8/6/2020
  * @author: 大帅
  * @version:
