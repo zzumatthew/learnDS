@@ -24,6 +24,9 @@ package cn.matthew.jzoffer;
 3.删除的节点是尾节点：需要从头结点开始，顺序遍历得到该节点的前一个节点
 
 bug：这道题必须以需要删除的节点必须在链表中，否则依旧要遍历来检查该节点是否存在。
+
+启发：
+在有关链表的操作的时候，往往需要注意节点所处的位置，头节点、中间节点和尾节点，可能处理的方法略微不同。
  */
 public class JZ18 {
     public static void main(String[] args) {
