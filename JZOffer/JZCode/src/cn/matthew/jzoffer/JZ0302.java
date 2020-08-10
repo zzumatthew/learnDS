@@ -17,7 +17,7 @@ package cn.matthew.jzoffer;
 把1~n的数字用中间的数字m分成两边；左边为1~m，右边为m+1~n；
 如果1~m的数字在数组中出现的次数大于m，那么这个数段里面的数在数组中一定有重复的，不然应该恰好就是m
 否则重复的就在另外一边；
-不断的把数段进行划分就可以找到重复的数字；
+不断的把数段进行划分就可以找到重复的数字。
  */
 public class JZ0302 {
     public static void main(String[] args) {
