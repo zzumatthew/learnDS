@@ -9,7 +9,7 @@ package cn.matthew.jzoffer;
 
 /*
 题目：
-实现Math.pow（double base,int exponent），求base的exponent次方。
+实现Math.pow（double base,int exponent），求base的exponent次方；
 不得使用现成的方法，同时不需要考虑大数问题。
 
 思路：
