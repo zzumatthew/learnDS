@@ -3,7 +3,7 @@ package cn.matthew.jzoffer;
 import java.util.Stack;
 
 /**
- * @description: 用两个栈实现队列
+ * @description: 用两个栈实现一个队列
  * @date: 8/7/2020
  * @author: 大帅
  * @version:
