@@ -1,7 +1,7 @@
 package cn.matthew.jzoffer;
 
 /**
- * @description: 青蛙跳台阶问题
+ * @description: 青蛙跳台阶有多少种跳法
  * @date: 8/7/2020
  * @author: 大帅
  * @version:
