@@ -38,9 +38,8 @@ public class JZ04 {
     }
 
     /**
-     *
-     * @param origin 输入的二维数组
-     * @param k 待查找的数
+     * @param origin 输入二维数组
+     * @param k      待查找的数
      * @return true表示数组中含有待查找的数，false表示不含有要查找的数
      */
     private static boolean findNum(int[][] origin, int k) {
