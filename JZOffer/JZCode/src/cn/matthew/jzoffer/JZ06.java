@@ -71,4 +71,16 @@ class ListNode{
         this.val = val;
         this.next = null;
     }
+
+    public static void printNode(ListNode curr){
+        if (curr != null){
+            while (curr.next != null){
+                System.out.print(curr.val + "->");
+                curr = curr.next;
+            }
+            System.out.println(curr.val);
+        }else {
+            System.out.println();
+        }
+    }
 }
