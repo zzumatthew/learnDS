@@ -1,7 +1,7 @@
 package cn.matthew.jzoffer;
 
 /**
- * @description: 替换空格
+ * @description: 替换空格为%20
  * @date: 8/6/2020
  * @author: 大帅
  * @version:
