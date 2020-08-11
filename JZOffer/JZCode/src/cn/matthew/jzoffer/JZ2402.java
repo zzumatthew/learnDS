@@ -31,7 +31,7 @@ public class JZ2402 {
     //完成链表反转需要两个动作
     //1.后一个节点指向前一个节点
     //2.前一个节点的下一个节点为null
-    //不要跳到递归里面看问题！整个方法本质就做了一个事情：把两个节点反转，返回后一个节点。
+    //不要跳到递归里面看问题！整个递归方法本质就做了一个事情：把两个节点反转。
     public static ListNode reverseListNodeRecur(ListNode pNode) {
         if (pNode == null || pNode.next == null) return pNode;
         ListNode newHead = reverseListNodeRecur(pNode.next);//这个是原链表的尾节点
