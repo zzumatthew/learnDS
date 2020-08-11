@@ -14,8 +14,8 @@ package cn.matthew.jzoffer;
 
 思路：
 整个过程需要分两步
-第一步：需要在A中找到B的根节点（找不到肯定就不是子树）
-第二步：需要检查左子节点和右子节点
+第一步：需要在A中找到B的根节点（找不到肯定就不是子树）；
+第二步：需要检查左子节点和右子节点。
  */
 public class JZ26 {
     public static void main(String[] args) {
