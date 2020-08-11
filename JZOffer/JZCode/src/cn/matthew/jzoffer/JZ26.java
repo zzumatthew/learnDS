@@ -16,6 +16,9 @@ package cn.matthew.jzoffer;
 整个过程需要分两步
 第一步：需要在A中找到B的根节点（找不到肯定就不是子树）；
 第二步：需要检查左子节点和右子节点。
+
+都用了递归的方法，好好再理解一下递归！不要跳进递归！
+注意理解递归函数的本质是在做什么！
  */
 public class JZ26 {
     public static void main(String[] args) {
