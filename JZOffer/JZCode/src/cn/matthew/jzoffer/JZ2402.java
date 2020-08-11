@@ -21,16 +21,24 @@ public class JZ2402 {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
+        //原链表 1->2->3->4
+        //反转 4->3->2->1
         ListNode.printNode(reverseListNodeRecur(n1));
     }
 
     //链表反转的递归实现
-    public static ListNode reverseListNodeRecur(ListNode pHead) {
-        if (pHead == null || pHead.next == null) return pHead;
-        ListNode newHead = reverseListNodeRecur(pHead.next);
+    //递归的终止条件是当前节点或者下一个节点为null（其实就是为了找尾节点）
+    //完成链表反转需要两个动作
+    //1.后一个节点指向前一个节点
+    //2.前一个节点的下一个节点为null
+    //不要跳到递归里面看问题！整个方法本质就做了一个事情：把两个节点反转，返回后一个节点。
+    public static ListNode reverseListNodeRecur(ListNode pNode) {
+        if (pNode == null || pNode.next == null) return pNode;
+        ListNode newHead = reverseListNodeRecur(pNode.next);//这个是原链表的尾节点
         //链表反转
-        pHead.next.next = pHead; //一个节点的下一个节点的下一个节点重新指向这个节点，就是链表反转 1->2到2->1的过程
-        pHead.next = null;
+        pNode.next.next = pNode; //一个节点的下一个节点的下一个节点重新指向这个节点，就是链表反转 1->2到2->1的过程
+        pNode.next = null;//切断原本pNode和下一个节点的联系
+
         return newHead;
     }
 }
