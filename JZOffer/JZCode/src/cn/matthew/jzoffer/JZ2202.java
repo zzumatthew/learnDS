@@ -35,17 +35,17 @@ public class JZ2202 {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
+        n5.next = n6;
         //正常测试
         System.out.println(findMidNode(n1).val);
-        //null测试
-        System.out.println(findMidNode(null).val);
     }
 
     private static ListNode findMidNode(ListNode pHead) {
         if (pHead == null) return null;
         ListNode p1 = pHead;//p1每次走两步
         ListNode p2 = pHead;//p2每次走一步
-        while (p1.next != null) {
+        //p1能前进的条件就是：当前节点以及下一个节点都不能为空
+        while (p1 != null && p1.next != null) {
             p1 = p1.next.next;
             p2 = p2.next;
         }
