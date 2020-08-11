@@ -19,6 +19,10 @@ package cn.matthew.jzoffer;
 
 都用了递归的方法，好好再理解一下递归！不要跳进递归！
 注意理解递归函数的本质是在做什么！
+
+注意：
+原题在定义树的值的时候用的使double类型，在判断double类型的数据是否相等的时候；
+我们取一个很小的精度值（比如0.00000001），只要这两个数的差值在精度值以内就可以认为使相等的。
  */
 public class JZ26 {
     public static void main(String[] args) {
