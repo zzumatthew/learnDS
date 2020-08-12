@@ -45,7 +45,7 @@ public class JZ27 {
     public static TreeNode mirrorTree(TreeNode pNode) {
         if (pNode == null) return null;
         if (pNode.left == null && pNode.right == null)
-            return null;
+            return pNode;
 
         //递归方法本质在干嘛？就是把左子节点和右子节点进行交换！
         TreeNode pTemp = pNode.left;
