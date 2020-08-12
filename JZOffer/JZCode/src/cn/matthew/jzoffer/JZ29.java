@@ -54,7 +54,6 @@ public class JZ29 {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0)
             return;
         int rows = matrix.length;
-        ;
         int columns = matrix[0].length;
         int[] order = new int[rows * columns];
         int index = 0;
@@ -70,6 +69,7 @@ public class JZ29 {
             for (int row = top + 1; row <= bottom; row++) {
                 order[index++] = matrix[row][right];
             }
+            //严格小于，是怕出现只有一行或者只有一列的情况
             if (left < right && top < bottom) {
                 for (int col = right - 1; col > left; col--) {
                     order[index++] = matrix[bottom][col];
