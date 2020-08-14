@@ -33,11 +33,11 @@ public class JZ35 {
         cloneSelf(pHead);
         //第二步，复制节点的指向
         connectSIblingNode(pHead);
-        //第三步
+        //第三步，链表的剥离
         return reconnectNode(pHead);
     }
 
-    //完成节点自身的复制，复制节点的前一个就是自己，后一个是原本指向的后一个
+    //第一步：完成节点自身的复制，复制节点的前一个就是自己，后一个是原本指向的后一个
     private static void cloneSelf(ListNode pHead) {
         //pNode为当前在处理的节点
         ListNode pNode = pHead;
@@ -50,7 +50,7 @@ public class JZ35 {
         }
     }
 
-    //调整复制节点的指向
+    //第二步：调整复制节点的指向
     private static void connectSIblingNode(ListNode pHead) {
         ListNode pNode = pHead;
         while (pNode != null) {
@@ -62,19 +62,23 @@ public class JZ35 {
         }
     }
 
-    //
+    //第三步：链表的剥离
     private static ListNode reconnectNode(ListNode pHead) {
         ListNode pNode = pHead;
         ListNode pCloneHead = null;
         ListNode pCloneNode = null;
         if (pNode != null) {
-            pCloneHead = pHead.next;
+            pCloneHead = pHead.next;//复制链表的头节点
             pCloneNode = pNode.next;
             pNode.next = pCloneNode.next;
             pNode = pNode.next;
 
         }
 
+        //此时pNode已经走到下一个pNode了，看图会很容易理解下面的循环过程
+        //A - A' - B - B' - ...
+        //    ↑    ↑
+        //   pC    pN
         while (pNode != null) {
             pCloneNode.next = pNode.next;
             pCloneNode = pCloneNode.next;
