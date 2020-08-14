@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class JZ35 {
     public static void main(String[] args) {
-
+        //方法已通过Leetcode测试
     }
 
     public static ListNode copyRandomList(ListNode pHead) {
@@ -38,23 +38,20 @@ public class JZ35 {
     }
 
     //完成节点自身的复制，复制节点的前一个就是自己，后一个是原本指向的后一个
-    private static ListNode cloneSelf(ListNode pHead) {
+    private static void cloneSelf(ListNode pHead) {
         //pNode为当前在处理的节点
         ListNode pNode = pHead;
         while (pNode != null) {
-            ListNode pClone = new ListNode();
-            pClone.val = pNode.val;
+            ListNode pClone = new ListNode(pNode.val);
             pClone.next = pNode.next;
             pClone.random = null;
             pNode.next = pClone;
             pNode = pClone.next;
         }
-
-        return pHead;
     }
 
     //调整复制节点的指向
-    private static ListNode connectSIblingNode(ListNode pHead) {
+    private static void connectSIblingNode(ListNode pHead) {
         ListNode pNode = pHead;
         while (pNode != null) {
             ListNode pClone = pNode.next;
@@ -63,8 +60,6 @@ public class JZ35 {
             }
             pNode = pClone.next;
         }
-
-        return pHead;
     }
 
     //
@@ -75,7 +70,8 @@ public class JZ35 {
         if (pNode != null) {
             pCloneHead = pHead.next;
             pCloneNode = pNode.next;
-            pNode = pCloneNode.next;
+            pNode.next = pCloneNode.next;
+            pNode = pNode.next;
 
         }
 
