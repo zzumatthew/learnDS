@@ -80,6 +80,6 @@ public class JZ34 {
         }
         recur(root.left, sum);
         recur(root.right, sum);
-        path.removeLast();//向上回溯，目的是遍历完所有符合条件的路径
+        path.removeLast();//向上回溯，目的是遍历完所有符合条件的路径(好好回顾树的前序遍历）
     }
 }
