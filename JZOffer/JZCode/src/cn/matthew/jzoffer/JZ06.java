@@ -63,18 +63,23 @@ public class JZ06 {
 }
 
 //链表结构
-class ListNode{
+class ListNode {
     int val;
     ListNode next;
+    ListNode random;//在剑指35题中需要用到random指针
 
-    public ListNode(int val){
-        this.val = val;
-        this.next = null;
+    public ListNode() {
     }
 
-    public static void printNode(ListNode curr){
-        if (curr != null){
-            while (curr.next != null){
+    public ListNode(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+
+    public static void printNode(ListNode curr) {
+        if (curr != null) {
+            while (curr.next != null) {
                 System.out.print(curr.val + "->");
                 curr = curr.next;
             }
