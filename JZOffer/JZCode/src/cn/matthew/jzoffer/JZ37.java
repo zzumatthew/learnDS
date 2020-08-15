@@ -29,14 +29,16 @@ public class JZ37 {
         root.left.left = new TreeNode(4);
         root.right.left = new TreeNode(5);
         root.right.right = new TreeNode(6);
-        System.out.println("原始树：" + root);
+        System.out.println("原始树：");
+        JZ0702.preOrder(root);
         String result = serialize(root);
         System.out.println("序列化结果：" + result);
         TreeNode deserializeRoot = deserialize(result);
-        System.out.println("反序列后的树：" + deserializeRoot);
+        System.out.println("反序列后的树：");
+        JZ0702.preOrder(deserializeRoot);
     }
 
-    // 序列化一棵二叉树
+    // 序列化一棵二叉树（下面用的是前序遍历，根-左-右）
     public static String serialize(TreeNode root) {
         if (root == null) return "$,";
         StringBuilder res = new StringBuilder();
@@ -55,15 +57,16 @@ public class JZ37 {
 
     public static TreeNode deserializeCore(StringBuilder stringBuilder) {
         if (stringBuilder.length() == 0) return null;
+        //序列化之后的节点之间用的","分开的，所以每次都是取出逗号之前的数据
         String num = stringBuilder.substring(0, stringBuilder.indexOf(","));
         stringBuilder.delete(0, stringBuilder.indexOf(","));
         stringBuilder.deleteCharAt(0);
         if (num.equals("$"))
             return null;
-        TreeNode node = new TreeNode(Integer.parseInt(num));
-        node.left = deserializeCore(stringBuilder);
-        node.right = deserializeCore(stringBuilder);
+
+        TreeNode node = new TreeNode(Integer.parseInt(num));//根
+        node.left = deserializeCore(stringBuilder);//左
+        node.right = deserializeCore(stringBuilder);//右
         return node;
     }
-
 }
