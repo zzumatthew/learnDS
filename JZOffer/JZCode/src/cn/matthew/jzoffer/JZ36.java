@@ -19,7 +19,7 @@ package cn.matthew.jzoffer;
  /  \   /  \
 4   8  12  16
 输出的排序的双向链表
-4⇄6⇄8⇄10⇄12⇄14⇄16(其实这个顺序就是中序遍历的顺序）
+4⇄6⇄8⇄10⇄12⇄14⇄16(其实这个顺序就是中序遍历的顺序，所以中序遍历的结果中的数已经排好序了）
 (注意，剑指里面4和16没有连起来，但是leetcode里面有把4和16连起来的）
 
 思路：
@@ -40,28 +40,30 @@ public class JZ36 {
     static TreeNode pre = null;
     static TreeNode head = null;
 
-    //完成树到双向列表的转换
+    //完成树到双向列表的转换，整个操作用到了三个"指针" 当前cur，上一个pre，第一个head
     public static TreeNode treeToDoubleList(TreeNode root) {
         if (root == null) return root;
         helper(root);//得到一个双向链表
+        //首尾相连形成一个循环链表
         head.left = pre;
-        pre.right = head;//首尾相连形成一个循环链表
+        pre.right = head;
         return head;
     }
 
-    //cur是当前节点，pre是上一轮的cur
+    //cur是当前节点，pre是上一轮的cur(其实就是在进行中序遍历）
     public static void helper(TreeNode cur) {
         if (cur == null) return;
-        //递归遍历左子树，一直在找左节点
+        //找左节点，找不到就返回
         helper(cur.left);
-        //构建链表
+        //构建链表，当前的左边是上一个，上一个的右边是当前
         if (pre != null) {
+            cur.left = pre;
             pre.right = cur;
-        } else
-            head = cur;//pre为null，说明cur节点已经走到了树结构的最左的节点，这个节点需要定义为链表的头结点
-        cur.left = pre;
+        } else {
+            head = cur;//这个在整个程序中只会执行一次，用于找到头节点（树最左边的一个节点）
+        }
         pre = cur;
-        //递归右子树
+        //找右节点，找不到就返回
         helper(cur.right);
     }
 }
