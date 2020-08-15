@@ -19,7 +19,7 @@ package cn.matthew.jzoffer;
  /  \   /  \
 4   8  12  16
 输出的排序的双向链表
-4⇄6⇄8⇄10⇄12⇄14⇄16
+4⇄6⇄8⇄10⇄12⇄14⇄16(其实这个顺序就是中序遍历的顺序）
 (注意，剑指里面4和16没有连起来，但是leetcode里面有把4和16连起来的）
 
 思路：
@@ -28,36 +28,39 @@ package cn.matthew.jzoffer;
 由于要求转换之后要排序，那么符合要求的遍历方式就是中序遍历（左-根-右）；
 对于上述的二叉树，10应该和6节点的右节点8连起来，10应该和14节点的左子节点12连起来。
 所以规律就是，根节点与左子节点的右子节点连起来，根节点与右子节点的左子节点连起来。
+
+
  */
 public class JZ36 {
     public static void main(String[] args) {
         //所有的测试用例在leetcode中完成
     }
 
-    public static TreeNode convert(TreeNode pRoot) {
-        TreeNode pLastNodeInList = null;
-        convertNode(pRoot, pLastNodeInList);
-        TreeNode pHeadOfList = pLastNodeInList;
-        while (pHeadOfList != null && pHeadOfList.left != null) {
-            pHeadOfList = pHeadOfList.left;
-        }
-        return pHeadOfList;
+    static TreeNode pre = null;
+    static TreeNode head = null;
+
+    //完成树到双向列表的转换
+    public static TreeNode treeToDoubleList(TreeNode root) {
+        if (root == null) return root;
+        helper(root);//得到一个双向链表
+        head.left = pre;
+        pre.right = head;//首尾相连形成一个循环链表
+        return head;
     }
 
-    private static void convertNode(TreeNode pNode, TreeNode pLastodeInList) {
-        if (pNode == null)
-            return;
-        TreeNode pCurrent = pNode;
-        if (pCurrent.left != null)
-            convertNode(pCurrent.left, pLastodeInList);
-        pCurrent.left = pLastodeInList;
-        if (pLastodeInList != null)
-            pLastodeInList.right = pCurrent;
-
-        pLastodeInList = pCurrent;
-
-        if (pCurrent.right != null)
-            convertNode(pCurrent.right, pLastodeInList);
+    //cur是当前节点，pre是上一轮的cur
+    public static void helper(TreeNode cur) {
+        if (cur == null) return;
+        //递归遍历左子树，一直在找左节点
+        helper(cur.left);
+        //构建链表
+        if (pre != null) {
+            pre.right = cur;
+        } else
+            head = cur;//pre为null，说明cur节点已经走到了树结构的最左的节点，这个节点需要定义为链表的头结点
+        cur.left = pre;
+        pre = cur;
+        //递归右子树
+        helper(cur.right);
     }
-
 }
