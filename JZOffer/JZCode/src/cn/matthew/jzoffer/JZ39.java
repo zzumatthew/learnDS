@@ -50,11 +50,16 @@ return nums[nums.length/2];
  */
 public class JZ39 {
     public static void main(String[] args) {
+        //三个数组对应剑指中的三种测试用例
         int[] nums = {1, 2, 3, 2, 2, 2, 5, 4, 2};
+        int[] nums1 = {1};
+        int[] nums2 = {1, 1, 2, 2};
         System.out.println(majorityNum(nums));
+        System.out.println(majorityNum(nums1));
+        System.out.println(majorityNum(nums2));
     }
 
-    public static int majorityNum(int[] nums) {
+    public static Integer majorityNum(int[] nums) {
         int major = 0;//表示目前还存活的数
         int count = 0;//还存活的数的个数
         for (int num : nums) {
@@ -63,6 +68,10 @@ public class JZ39 {
 
             count += (major == num) ? 1 : -1;//major和num打一架，不同的话都死了
         }
-        return major;
+
+        if (count > 0)
+            return major;
+        else
+            return null;//没有数字活下来，也就是数组中没有超过半数的数字
     }
 }
