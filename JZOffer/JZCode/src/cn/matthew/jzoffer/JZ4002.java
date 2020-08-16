@@ -48,6 +48,12 @@ leetcode思路：利用堆排序。
 不过这个方法在leetcode上跑了21ms，击败了20%的提交。
 前面的快排思想代码只跑了2ms，击败了99%；
 而两者在内存使用方面几乎相同，大概40MB。
+
+两种解法的比较：
+               快排思想        堆排序
+时间复杂度       O(n)          O(nlgn)
+是否修改数组      是              否
+海量数据        不适用           适用
  */
 public class JZ4002 {
     public static void main(String[] args) {
