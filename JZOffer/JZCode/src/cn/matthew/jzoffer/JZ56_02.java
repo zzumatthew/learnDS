@@ -41,6 +41,7 @@ public class JZ56_02 {
         int[] bitSum = new int[32];
         int res = 0;
 
+        //位累加
         for (int num : nums) {
             int bitMask = 1;//(00000000 00000000 00000000 00000001)
             for (int i = 31; i >= 0; i--) {
@@ -50,6 +51,7 @@ public class JZ56_02 {
             }
         }
 
+        //找到唯一出现的一个数
         for (int i = 0; i < 32; i++) {
             res = res << 1;
             res += bitSum[i] % 3;
