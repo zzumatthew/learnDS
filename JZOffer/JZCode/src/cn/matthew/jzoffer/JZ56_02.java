@@ -25,6 +25,13 @@ package cn.matthew.jzoffer;
 -----
 结果的每一位%3
 0001 -> 1
+
+------------
+56题就是考察位运算，这方面的题做的比较少。
+异或^的性质要记住的就是0异或任何一个数等于本身。
+
+leetcode中的详细解释
+https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/solution/zhi-chu-xian-yi-ci-de-shu-xi-lie-wei-yun-suan-by-2/
  */
 public class JZ56_02 {
 
