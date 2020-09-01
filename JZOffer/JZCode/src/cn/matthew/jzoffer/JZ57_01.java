@@ -47,12 +47,13 @@ public class JZ57_01 {
         return null;
     }
 
-    //双指针检测
+    //双指针检测，i从头开始，j从尾开始
     //如果nums[i] + nums[j] = target，return new int[]{nums[i],nums[j]};
     //如果nums[i] + nums[j] > target,j--;
     //如果nums[i] + nums[j] < target,i++;
     public static int[] twoSum2(int[] nums, int target) {
         if (nums == null || nums.length <= 0) return null;
+
         int i = 0;
         int j = nums.length - 1;
         while (i < j) {
@@ -60,9 +61,9 @@ public class JZ57_01 {
             if (sum == target) {
                 return new int[]{nums[i], nums[j]};
             } else if (sum > target) {
-                j--;
+                j--;//和数太大，大的就往小了调
             } else {
-                i++;
+                i++;//和数太小，小的就往大了调
             }
         }
 
