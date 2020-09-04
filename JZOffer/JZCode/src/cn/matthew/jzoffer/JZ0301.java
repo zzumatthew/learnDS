@@ -32,7 +32,9 @@ public class JZ0301 {
         for (int num : nums) {
             if (num < 0 || num > nums.length) throw new Exception("数组中有数字不合法！");
         }
-        //合法的时候进入判断
+
+        //while循环里面的操作就是把m移到m的下标上，那么后面总有一个位置i上的nums[i] == nums[nums[i]]
+        //否则所给的数组里面就没有重复的数字
         for (int i = 0; i < nums.length; i++) {
             //首先比较第i个数字（用m表示）是不是等于i,不是的话进行处理，是的话继续扫描下一个
             while (nums[i] != i) {
