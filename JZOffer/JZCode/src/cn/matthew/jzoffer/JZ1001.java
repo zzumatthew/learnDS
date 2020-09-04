@@ -23,7 +23,7 @@ f(n) = f(n-1)+f(n-2),n>1
  */
 public class JZ1001 {
     public static void main(String[] args) {
-        System.out.println(Fibonacci(50));
+        System.out.println(Fibonacci(45));
     }
 
     /**
@@ -38,7 +38,7 @@ public class JZ1001 {
         long fNMinus2 = 0;
         long fNMinus1 = 1;
         long fN = 0;
-        for (long i = 2; i < n; ++i) {
+        for (long i = 2; i <= n; ++i) {
             fN = fNMinus2 + fNMinus1;
             fNMinus2 = fNMinus1;
             fNMinus1 = fN;
