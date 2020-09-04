@@ -32,41 +32,35 @@ package cn.matthew.jzoffer;
 public class JZ04 {
     public static void main(String[] args) {
         int[][] origin = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
-        int k = 3;
+        int k = 9;
         boolean res = findNum(origin,k);
         System.out.println("二维数组中是否含有数字" + k + "?  \n" + res);
     }
 
     /**
-     * @param origin 输入二维数组
-     * @param k      待查找的数
+     * @param matrix 输入二维数组
+     * @param target      待查找的数
      * @return true表示数组中含有待查找的数，false表示不含有要查找的数
      */
-    private static boolean findNum(int[][] origin, int k) {
-        boolean flag = false;//flag记录结果
-        int rows = origin.length;//二维数组的行
-        int columns = origin[0].length;//二维数组的列
-        //输入的数组需要满足条件：不能为空，行或者列不能小于0
-        if (origin != null && rows > 0 && columns > 0){
-            int row = 0;
-            int column = columns - 1;
-            //row从最小开始，column从最大开始（0行3列，所有的起始都从0开始）
-            while (row < rows && column >0){
-                //取出数组中的右上角的数字
-                if (origin[row][column] == k){
-                    //取出来的数字与待查找的数字相等,查找结束，break
-                    flag = true;
-                    break;
-                }else if (origin[row][column] > k){
-                    //取出来的数字比待查找的数字大，删除掉这一列，行从最大开始，所以column--
-                    column--;
-                }else {
-                    //取出来的数字比待查找的数字小，删除掉这一行，列从最小开始，所以row++
-                    row++;
-                }
-            }
+    private static boolean findNum(int[][] matrix, int target) {
+        //一开始写的是int columns = matrix[0].length;
+        //但是因为给的测试用例中matrix={{}},所以有数组越界异常
+        //改成下面的if语句确保数组是有效的数组
+        if(matrix == null || matrix.length <= 0) return false;
 
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        int row = 0;
+        int column = columns - 1;
+        while(row < rows && column >= 0){
+            if(target < matrix[row][column]){
+                column--;
+            }else if(target > matrix[row][column]){
+                row++;
+            }else{
+                return true;
+            }
         }
-        return flag;//跑完了flag还没有改，那么就是数组中不存在需要查找的数
+        return false;
     }
 }
