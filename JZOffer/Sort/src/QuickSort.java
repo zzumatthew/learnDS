@@ -36,9 +36,9 @@ public class QuickSort {
         int p1 = left;//第一个哨兵，负责找大于基准值的
         int p2 = right;//第二个哨兵，负责找小于基准值的
         while (p1 != p2) {
-            if (arr[p2] >= bench && p1 < p2)
+            while (arr[p2] >= bench && p1 < p2)
                 p2--;
-            if (arr[p1] <= bench && p1 < p2)
+            while (arr[p1] <= bench && p1 < p2)
                 p1++;
             if (p1 < p2)
                 exch(arr, p1, p2);
