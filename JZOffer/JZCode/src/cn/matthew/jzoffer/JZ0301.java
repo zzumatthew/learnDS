@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class JZ0301 {
     public static void main(String[] args) throws Exception {
-        int[] origin = {2, 3, 2, 1};//测试用例
+        int[] origin = {0, 1, 2, 3, 4, 11, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};//测试用例
         final int repeatNum = findRepeatNum(origin);
         System.out.println("数组中重复的数字为" + repeatNum);
 
@@ -32,10 +32,12 @@ public class JZ0301 {
         for (int num : nums) {
             if (num < 0 || num > nums.length) throw new Exception("数组中有数字不合法！");
         }
-        //合法的时候进入判断
+
+        //while循环里面的操作就是把m移到m的下标上，那么后面总有一个位置i上的nums[i] == nums[nums[i]]
+        //否则所给的数组里面就没有重复的数字
         for (int i = 0; i < nums.length; i++) {
             //首先比较第i个数字（用m表示）是不是等于i,不是的话进行处理，是的话继续扫描下一个
-            if (nums[i] != i) {
+            while (nums[i] != i) {
                 //第m个数字和第i个数字相等，那么就找到了一个重复的数字
                 if (nums[nums[i]] == nums[i]) {
                     return nums[i];
@@ -44,8 +46,6 @@ public class JZ0301 {
                 int temp = nums[i];
                 nums[i] = nums[nums[i]];
                 nums[nums[i]] = temp;
-            }else {
-                i++;
             }
         }
         System.out.println("数组中没有重复的数字！");

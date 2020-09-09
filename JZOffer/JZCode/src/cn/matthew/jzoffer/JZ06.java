@@ -1,5 +1,6 @@
 package cn.matthew.jzoffer;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -58,6 +59,25 @@ public class JZ06 {
             reverseLinkNode2(node.next);
             System.out.println(node.val);
         }
+    }
+
+    //用数组记录结果，可以直接反着来
+    private static void reverseLinkNode3(ListNode head){
+        int count = 0;
+        ListNode p1 = head;
+        while (p1 != null){
+            count++;
+            p1 = p1.next;
+        }
+
+        int[] res = new int[count];
+        ListNode p2 = head;
+        for (int i = count-1; i >= 0; i--) {
+            res[i] = p2.val;
+            p2 = p2.next;
+        }
+
+        System.out.println(Arrays.toString(res));
     }
 
 }
