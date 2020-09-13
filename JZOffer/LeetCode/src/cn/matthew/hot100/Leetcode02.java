@@ -39,6 +39,12 @@ public class Leetcode02 {
             if (l1 != null) l1 = l1.next;
             if (l2 != null) l2 = l2.next;
 
+            //调试的时候发现[5] [5]返回[0,1]，下面的代码没有写就会返回[0]
+            if (l1 == null && l2 == null && carry == 1) {
+                newListNode = new ListNode(1);
+                cur.next = newListNode;
+            }
+
         }
         return root.next;
     }
